@@ -1,0 +1,32 @@
+package JUnitTesting;
+
+public class JUnitTesting {
+	public int add(int a, int b) {
+		return a + b; 
+	}
+	
+	public int multiply (int a, int b) {
+		return a * b;
+	}
+	
+	public char determineLetterGrade(int grade) {
+		if (grade < 0) {
+			throw new IllegalArgumentException("Number Grade is not possible");
+		}
+		else if (grade < 60) {
+			return 'F'; 
+		}
+		else if (grade < 70) {
+			return 'D'; 
+		}
+		else if (grade < 80) {
+			return 'C'; 
+		}
+		else if (grade < 90) {
+			return 'B'; 
+		}
+		else {
+			return 'A';
+		}
+	} 
+}
