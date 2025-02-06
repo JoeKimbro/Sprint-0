@@ -1,0 +1,196 @@
+package Sprint0;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
+import java.awt.Font;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Dimension;
+import java.awt.Panel;
+
+public class Sprint0 {
+
+	public class ButtonClickListener  implements ActionListener {
+	            private int row, col;
+
+	            public ButtonClickListener(int row, int col) {
+	                this.row = row;
+	                this.col = col;
+	            }
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                if (board[row][col].getText().equals("")) {
+	                    if (isBlueTurn) {
+	                        board[row][col].setText("S");
+	                        lblNewLabel_3.setText("Current Turn: Red");
+	                    } else {
+	                        board[row][col].setText("O");	
+	                        lblNewLabel_3.setText("Current Turn: Blue");
+	                    }
+	                    isBlueTurn = !isBlueTurn;
+	                    checkForWin();
+	       }
+	    }      
+	}
+	
+	
+	private void checkForWin() {
+        // Implement win condition checking
+    }
+
+	private JFrame frame;
+	private static final long serialVersionUID = 1L;
+	private JButton[][] board;
+    private JLabel lblNewLabel_3;
+    private boolean isBlueTurn = true;
+    
+  
+    
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Sprint0 window = new Sprint0();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Sprint0() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 869, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Simple Game");
+		rdbtnNewRadioButton.setBounds(132, 49, 109, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton);
+		
+		lblNewLabel_3 = new JLabel("Current Turn: Blue");
+		lblNewLabel_3.setBounds(331, 536, 134, 14);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("General Game");
+		rdbtnNewRadioButton_1.setBounds(565, 49, 109, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Board Size");
+		lblNewLabel.setBounds(680, 38, 73, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(754, 34, 30, 22);
+		frame.getContentPane().add(comboBox);
+		
+		JLabel lblNewLabel_1 = new JLabel("Blue Player");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(10, 327, 78, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Red Player");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(719, 327, 85, 14);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Human");
+		rdbtnNewRadioButton_2.setBounds(10, 348, 67, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_2_1 = new JRadioButton("S");
+		rdbtnNewRadioButton_2_1.setBounds(10, 374, 56, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_2_1);
+		
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Human");
+		rdbtnNewRadioButton_3.setBounds(731, 348, 67, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		
+		JRadioButton rdbtnNewRadioButton_3_1 = new JRadioButton("S");
+		rdbtnNewRadioButton_3_1.setBounds(731, 374, 50, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_3_1);
+		
+		JRadioButton rdbtnNewRadioButton_3_1_1 = new JRadioButton("O");
+		rdbtnNewRadioButton_3_1_1.setBounds(731, 400, 50, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_3_1_1);
+		
+		JRadioButton rdbtnNewRadioButton_2_1_1 = new JRadioButton("O");
+		rdbtnNewRadioButton_2_1_1.setBounds(10, 400, 56, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_2_1_1);
+		
+		JRadioButton rdbtnNewRadioButton_2_1_1_1 = new JRadioButton("Computer");
+		rdbtnNewRadioButton_2_1_1_1.setBounds(10, 426, 93, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_2_1_1_1);
+		
+		JRadioButton rdbtnNewRadioButton_3_1_1_1 = new JRadioButton("Computer");
+		rdbtnNewRadioButton_3_1_1_1.setBounds(731, 426, 89, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_3_1_1_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Record Game");
+		chckbxNewCheckBox.setBounds(6, 479, 97, 23);
+		frame.getContentPane().add(chckbxNewCheckBox);
+		
+		JButton btnNewButton = new JButton("Replay");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		
+		btnNewButton.setBounds(719, 479, 101, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewGame = new JButton("New Game");
+		btnNewGame.setBounds(719, 513, 101, 23);
+		frame.getContentPane().add(btnNewGame);
+		
+		JLabel lblNewLabel_4 = new JLabel("SOS");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 32));
+		lblNewLabel_4.setBounds(368, 11, 134, 61);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		Panel panel = new Panel(new GridLayout(8, 8));
+		panel.setBounds(129, 78, 533, 439);
+		frame.getContentPane().add(panel);	
+		board = new JButton[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                board[i][j] = new JButton();
+                board[i][j].addActionListener(new ButtonClickListener(i, j));
+                panel.add(board[i][j]);
+            }
+        }
+	}
+}
