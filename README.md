@@ -1,25 +1,25 @@
 # Sprint-0
 
-Object-oriented programming language
+Object-oriented programming language:
 Java
 
-GUI library (strongly encouraged)
+GUI library (strongly encouraged):
 JavaFX
 
-IDE (Integrated Development Environment)
+IDE (Integrated Development Environment):
 Eclipse
 
-xUnit framework (e.g., JUnit for Java)
+xUnit framework (e.g., JUnit for Java):
 JUnit
 
-Programming style guide (must read it carefully)
+Programming style guide (must read it carefully):
 Java Programming Style
 
-Project hosting site
+Project hosting site:
 Github.com
 
 
-Other decisions if applicable
+Other decisions if applicable:
 Add an opponent AI for the game.
 Think of more additions to add. 
 Create a better GUI
